@@ -14,3 +14,7 @@ to provide motivational quotes for students.
 
 API used:
 https://api.quotable.io/random
+
+## 🚀 Deploy
+
+Application available online via Streamlit Cloud.
