@@ -36,14 +36,14 @@ st.subheader("📖 Motivation")
 
 if st.button("Get Motivation"):
     response = requests.get(
-        "https://api.quotable.io/random",
+        "https://zenquotes.io/api/random",
         timeout=5
     )
 
     if response.status_code == 200:
-        data = response.json()
+        data = response.json()[0]
 
-        st.success(f'"{data["content"]}"')
-        st.write(f'- {data["author"]}')
+        st.success(f'"{data["q"]}"')
+        st.write(f'- {data["a"]}')
     else:
         st.error("Could not fetch quote.")
