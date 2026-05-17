@@ -35,15 +35,18 @@ for i, task in enumerate(st.session_state.tasks):
 st.subheader("📖 Motivation")
 
 if st.button("Get Motivation"):
-    response = requests.get(
-        "https://zenquotes.io/api/random",
-        timeout=5
-    )
+    try:
+        response = requests.get(
+            "https://api.adviceslip.com/advice",
+            timeout=10
+        )
 
-    if response.status_code == 200:
-        data = response.json()[0]
+        if response.status_code == 200:
+            data = response.json()
 
-        st.success(f'"{data["q"]}"')
-        st.write(f'- {data["a"]}')
-    else:
-        st.error("Could not fetch quote.")
+            st.success(data["slip"]["advice"])
+        else:
+            st.error("Could not fetch advice.")
+
+    except requests.exceptions.RequestException:
+        st.error("Connection error while fetching advice.")
