@@ -6,3 +6,11 @@ Projeto completo para atividade acadêmica — Aplicação CLI com testes, lint,
 
 Live App:
 https://study-organizer-cli.streamlit.app
+
+## 🌐 API Integration
+
+This project integrates with the Quotable API
+to provide motivational quotes for students.
+
+API used:
+https://api.quotable.io/random
